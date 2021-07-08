@@ -33,6 +33,7 @@ function CovidData() {
         result,
     } = GetCovidData(query);
 
+    //Used to take value from input and set the query for API GET REQUEST
     function handleSearch(e) {
         setQuery(e.target.value);
         if (e.target.value === "") {
@@ -42,6 +43,7 @@ function CovidData() {
         }
     }
 
+    //Used to get value from the selected Element and set the query for API GET REQUEST
     function getValue(value) {
         if (value.target.innerHTML === "All") {
             return;
@@ -74,7 +76,7 @@ function CovidData() {
                 <p>Deaths: {t[1].deaths}</p>
             </div>
         )
-        return <StyleData>{listOfCases}</StyleData>
+        return <div>{listOfCases}</div>
     }
 
     function CountryList() {
@@ -83,34 +85,38 @@ function CovidData() {
                 <h4 onClick={getValue}>{t[0]}</h4>
             </div>
         )
-        return <StyleData>{listOfCases}</StyleData>
+        return <div>{listOfCases}</div>
     }
 
     function ShowCovidData() {
         if (clicked || searched) {
             if (!loading)
                 return <CasesList />
+            else if(error)
+                return <div>{error && "Error"}</div>
             else
                 return <div>Loading...</div>
         } else {
             if (!loading)
                 return <CountryList />
+            else if(error)
+                return <div>{error && "Error"}</div>
             else
                 return <div>Loading...</div>
         }
     }
 
     return (
-        <div className="Container">
+        <>
             <StyleCovidData>
                 <h3>Search or Click Country to Get COVID-19 Results</h3>
             </StyleCovidData>
-            <div className="searchBox">
             <input type="text" style={searchBox} onChange={handleSearch} onKeyDown={handleInputDeletion}></input>
             <button onClick={displayAllData} style={searchBox}>Back</button>
-            </div>
-            <ShowCovidData />
-        </div>
+            <StyleData>
+                <ShowCovidData />
+            </StyleData>
+        </>
     );
 }
 

@@ -36,7 +36,7 @@ function ShowCountryData() {
     }
 
     return (
-        <div className="Container">
+        <>
             <StyleData>
                 <h3>Please Choose Between Cases or Vaccines to get Results!</h3>
             </StyleData>
@@ -48,7 +48,7 @@ function ShowCountryData() {
                 <CovidData />}
             {vaccineShow &&
                 <VaccineData />}
-        </div>
+        </>
     );
 }
 
