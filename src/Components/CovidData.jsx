@@ -7,16 +7,21 @@ function CovidData() {
     const StyleCovidData = styled.div`
         display: flex;
         justify-content:center;
-        font-size: 0.8em;
+        font-size: 1em;
     `
 
     const StyleData = styled.div`
         display: flex;
         flex-direction: column;
         justify-content:center;
-        font-size: 0.8em;
+        font-size: 1.1em;
         text-align: center;
     `
+
+    const searchBox = {
+        display: "block",
+        margin: "0 auto"
+    }
 
     const [query, setQuery] = useState("");
     const [searched, setSearched] = useState(false);
@@ -100,8 +105,10 @@ function CovidData() {
             <StyleCovidData>
                 <h3>Search or Click Country to Get COVID-19 Results</h3>
             </StyleCovidData>
-            <input type="text" onChange={handleSearch} onKeyDown={handleInputDeletion}></input>
-            <button onClick={displayAllData}>Back</button>
+            <div className="searchBox">
+            <input type="text" style={searchBox} onChange={handleSearch} onKeyDown={handleInputDeletion}></input>
+            <button onClick={displayAllData} style={searchBox}>Back</button>
+            </div>
             <ShowCovidData />
         </div>
     );

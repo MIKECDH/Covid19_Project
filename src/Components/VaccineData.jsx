@@ -8,9 +8,13 @@ function VaccineData() {
     display: flex;
     flex-direction: column;
     justify-content:center;
-    font-size: 0.8em;
+    font-size: 1.1em;
     text-align: center;
     `
+    const searchBox = {
+        display: "block",
+        margin: "0 auto"
+    }
     
     const [query, setQuery] = useState("");
     const [searched, setSearched] = useState(false);
@@ -91,9 +95,13 @@ function VaccineData() {
 
     return (
         <div className="Container">
+            <StyleData>
             <h3>Search or Click Country to Get COVID-19 Vaccine Results</h3>
-            <input type="text" onChange={handleSearch} onKeyDown={handleInputDeletion}></input>
-            <button onClick={displayAllData}>Back</button>
+            </StyleData>
+
+            <input type="text" style={searchBox} onChange={handleSearch} onKeyDown={handleInputDeletion}></input>
+            <button style={searchBox} onClick={displayAllData}>Back</button>
+
             <StyleData>
             <ShowVaccineData />
             </StyleData>
