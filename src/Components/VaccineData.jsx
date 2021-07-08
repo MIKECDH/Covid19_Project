@@ -10,8 +10,8 @@ function VaccineData() {
     justify-content:center;
     font-size: 0.8em;
     text-align: center;
-`
-
+    `
+    
     const [query, setQuery] = useState("");
     const [searched, setSearched] = useState(false);
     const [clicked, setClicked] = useState(false);
