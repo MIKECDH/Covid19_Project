@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import CovidData from './CovidData'
-import VaccineData from './VaccineData'
+import ShowCovidData from './ShowCovidData'
+import ShowVaccineData from './ShowVaccineData'
 import styled from 'styled-components';
 
 function ShowCountryData() {
@@ -45,9 +45,9 @@ function ShowCountryData() {
                 <Button onClick={vaccineOnClick}>Vaccines</Button>
             </StyleData>
             {casesShow &&
-                <CovidData />}
+                <ShowCovidData />}
             {vaccineShow &&
-                <VaccineData />}
+                <ShowVaccineData />}
         </>
     );
 }

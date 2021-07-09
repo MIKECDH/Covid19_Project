@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import GetCovidData from '../API/GetCovidData';
 import styled from 'styled-components';
 
-function CovidData() {
+function ShowCovidData() {
 
     const StyleCovidData = styled.div`
         display: flex;
@@ -45,19 +45,21 @@ function CovidData() {
 
     //Used to get value from the selected Element and set the query for API GET REQUEST
     function getValue(value) {
-        if (value.target.innerHTML === "All") {
+        if(value.target.innerHTML === 'All'){
             return;
         }
         setQuery(value.target.innerHTML);
         setClicked(true);
     }
 
+    //Display Only the Country Names
     function displayAllData() {
         setQuery("");
         setClicked(false);
         setSearched(false);
     }
 
+    //If the input text field is fully deleted reset all values
     function handleInputDeletion(e) {
         if (e.key === 'Backspace') {
             setQuery("");
@@ -66,6 +68,7 @@ function CovidData() {
         }
     }
 
+    //On Country name click or search, Print the Country Name and its Values
     function CasesList() {
         const listOfCases = result.map((t) =>
             <div key={t}>
@@ -79,27 +82,27 @@ function CovidData() {
         return <div>{listOfCases}</div>
     }
 
+    //List all Country Names in the API
     function CountryList() {
         const listOfCases = result.map((t) =>
-            <div key={t}>
-                <h4 onClick={getValue}>{t[0]}</h4>
-            </div>
+            <h4 key={t} onClick={getValue}>{t[0]}</h4>
         )
         return <div>{listOfCases}</div>
     }
 
+    //Function to check if condition and show correct view
     function ShowCovidData() {
         if (clicked || searched) {
             if (!loading)
                 return <CasesList />
-            else if(error)
+            else if (error)
                 return <div>{error && "Error"}</div>
             else
                 return <div>Loading...</div>
         } else {
             if (!loading)
                 return <CountryList />
-            else if(error)
+            else if (error)
                 return <div>{error && "Error"}</div>
             else
                 return <div>Loading...</div>
@@ -120,4 +123,4 @@ function CovidData() {
     );
 }
 
-export default CovidData;
+export default ShowCovidData;

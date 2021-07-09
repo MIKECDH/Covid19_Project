@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import GetCovidData from '../API/GetCovidData';
 import styled from 'styled-components';
 
-function VaccineData() {
+function ShowVaccineData() {
 
     const StyleData = styled.div`
         display: flex;
@@ -118,4 +118,4 @@ function VaccineData() {
     );
 }
 
-export default VaccineData;
+export default ShowVaccineData;
