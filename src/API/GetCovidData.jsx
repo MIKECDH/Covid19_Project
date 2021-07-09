@@ -14,6 +14,7 @@ export default function GetCovidData(query) {
         axios({
             method: 'GET',
             url: 'https://covid-api.mmediagroup.fr/v1/cases?country=' + query,
+            where are you using params
             params: { q: query },
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(res => {
@@ -38,7 +39,8 @@ export default function GetCovidData(query) {
         return () => cancel()
     }, [query]);
 
-
+if you're fetching both vaccine and covid data at once depending on search query you might want to put them in one use effect, process the data and then use that in your
+other shit
     // This useEffect is to Call the VACCINE DATA
     useEffect(() => {
         let cancel
