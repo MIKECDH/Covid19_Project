@@ -1,3 +1,4 @@
+delete this kind of stuff
 // if(clicked || searched) {
 //     return (
 //         <div key={t}>
