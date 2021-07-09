@@ -3,7 +3,7 @@ import GetCovidData from '../API/GetCovidData';
 import styled from 'styled-components';
 
 function ShowCovidData() {
-
+a lot of these functions look really similar to the ones in ShowVaccineData maybe you can make a utility class and put them in there so you can share them
     const StyleData = styled.div`
         display: flex;
         flex-direction: column;
