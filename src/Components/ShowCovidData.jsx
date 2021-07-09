@@ -4,12 +4,6 @@ import styled from 'styled-components';
 
 function ShowCovidData() {
 
-    const StyleCovidData = styled.div`
-        display: flex;
-        justify-content:center;
-        font-size: 1em;
-    `
-
     const StyleData = styled.div`
         display: flex;
         flex-direction: column;
@@ -30,7 +24,7 @@ function ShowCovidData() {
     const {
         error,
         loading,
-        result,
+        result
     } = GetCovidData(query);
 
     //Used to take value from input and set the query for API GET REQUEST
@@ -111,9 +105,9 @@ function ShowCovidData() {
 
     return (
         <>
-            <StyleCovidData>
+            <StyleData>
                 <h3>Search or Click Country to Get COVID-19 Results</h3>
-            </StyleCovidData>
+            </StyleData>
             <input type="text" style={searchBox} onChange={handleSearch} onKeyDown={handleInputDeletion}></input>
             <button onClick={displayAllData} style={searchBox}>Back</button>
             <StyleData>
