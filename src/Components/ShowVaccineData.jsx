@@ -24,7 +24,7 @@ function ShowVaccineData() {
         error,
         loading,
         vaccineResults
-    } = GetCovidData(query);
+    } = GetCovidData(query); make this name more general or make two classes (getVaccineData())
 
     //Used to take value from input and set the query for Axios.get method
     function handleSearch(e) {
