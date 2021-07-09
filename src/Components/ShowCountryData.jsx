@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 function ShowCountryData() {
 
+    do css stuff in your css files not here
     const StyleData = styled.div`
         display: flex;
         justify-content:center;
